@@ -1,9 +1,9 @@
 Package: drugdealR
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Suggest Drug Combination Options for Comorbid Patients
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
+Author: Nogayhan Seymen
+Maintainer: Nogayhan Seymen <nogayhan.seymen@live.acibadem.edu.tr>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
 License: What license is it under?
