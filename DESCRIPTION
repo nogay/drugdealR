@@ -4,9 +4,8 @@ Title: Suggest Drug Combination Options for Comorbid Patients
 Version: 0.1.0
 Author: Nogayhan Seymen
 Maintainer: Nogayhan Seymen <nogayhan.seymen@live.acibadem.edu.tr>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Description: Help doctors make drug decisions by taking comorbidities
+of patients into account.
 Encoding: UTF-8
 LazyData: true
 URL: http://github.com/nogay/drugdealR

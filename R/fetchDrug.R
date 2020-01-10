@@ -1,0 +1,5 @@
+library(XML)
+xmldoc <- xmlParse("./data/drugbank.xml")
+rootNode <- xmlRoot(xmldoc)
+data <- xmlSApply(rootNode,function(x) xmlSApply(x, xmlValue))
+cd.catalog <- data.frame(t(data),row.names=NULL)
