@@ -10,3 +10,5 @@ LazyData: true
 URL: http://github.com/nogay/drugdealR
 BugReports: http://github.com/nogay/drugdealR/issues
 License: MIT + file LICENSE
+Imports: 
+    XML

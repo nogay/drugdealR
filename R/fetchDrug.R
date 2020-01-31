@@ -1,15 +1,11 @@
-#' Load Drugbank data
+#' Load Drugbank data (January 2020)
 #'
-#' @param x character
-#'
-#' @return A dataframe
+#' @return dataframe
 #' @export
 #'
 #' @examples
-#' fetchDrug("./data/drugbank.xml")
-fetchDrugbank <- function(x){
-  xmldoc <- xmlParse(x)
-  rootNode <- xmlRoot(xmldoc)
-  data <- xmlSApply(rootNode,function(x) xmlSApply(x, xmlValue))
-  cd.catalog <- data.frame(t(data),row.names=NULL)
+#' fetchDrug()
+
+fetchDrugbank <- function(){
+  DRUG_DF <- read.csv(paste0("./data/drugbank.tsv"), sep = "\t")
 }
