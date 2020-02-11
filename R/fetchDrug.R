@@ -1,4 +1,4 @@
-#' Load Drugbank data (January 2020)
+#' Load Drugbank data (downloaded January 2020)
 #'
 #' @return dataframe
 #' @export
@@ -12,7 +12,8 @@ fetchDrugbank <- function(){
   DRUG_DF$genes <- gsub("\\{", "", DRUG_DF$genes)
   DRUG_DF$genes <- gsub("\\}", "", DRUG_DF$genes)
 
-  DRUG_DF <- DRUG_DF %>% separate('genes', paste0('genes', c(1:(max(str_count(df$genes, ","))+1))), sep = ',', remove = T)
+  DRUG_DF <- DRUG_DF %>%
+    separate('genes', paste0('genes', c(1:(max(str_count(DRUG_DF$genes, ","))+1))), sep = ',', remove = T)
 
   return(DRUG_DF)
 }
