@@ -14,9 +14,9 @@ load_interactome <- function(){
   DRUG2 <- "Tandutinib"
 
   # Load interactome and make graph ###################
-  interactome_subset <- read.csv("./data/megazord.csv")
+  interactome_subset <- utils::read.csv("./data/megazord.csv")
   interactome_subset$X <- NULL
-  disgenet <- read.csv("./data/disgenet.tsv", sep="\t")
+  disgenet <- utils::read.csv("./data/disgenet.tsv", sep="\t")
   SUBNETWORK <- igraph::graph_from_data_frame(interactome_subset)
   SUBNETWORK <- igraph::as.undirected(SUBNETWORK) #convert to undirected
   SUBNETWORK <- igraph::simplify(SUBNETWORK, remove.multiple = TRUE, remove.loops = TRUE)

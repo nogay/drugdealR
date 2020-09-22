@@ -4,10 +4,10 @@
 #' @export
 #'
 #' @examples
-#' fetchDrug()
+#' fetchDrugbank()
 
 fetchDrugbank <- function(){
-  DRUG_DF <- read.csv(paste0("./data/drugbank.tsv"), sep = "\t", stringsAsFactors = FALSE)
+  DRUG_DF <- utils::read.csv(paste0("./data/drugbank.tsv"), sep = "\t", stringsAsFactors = FALSE)
   colnames(DRUG_DF) <- c("name", "approval", "genes")
   DRUG_DF$genes <- gsub("\\{", "", DRUG_DF$genes)
   DRUG_DF$genes <- gsub("\\}", "", DRUG_DF$genes)

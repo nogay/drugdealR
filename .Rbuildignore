@@ -2,3 +2,7 @@
 ^\.Rproj\.user$
 ^LICENSE\.md$
 ^\.httr-oauth$
+^data
+^Python
+^\.Untitled.ipynb
+^\.draw.R
