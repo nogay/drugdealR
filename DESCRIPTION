@@ -12,6 +12,6 @@ BugReports: http://github.com/nogay/drugdealR/issues
 License: MIT + file LICENSE
 Imports: 
     XML,
-    devtools,
     tidyr,
-    stringr
+    stringr,
+    igraph
