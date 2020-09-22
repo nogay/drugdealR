@@ -4,8 +4,8 @@
 #' @export
 #'
 #' @examples
-#' int_df <- load_interactome()
-#'
+#' library(drugdealR)
+#' load_interactome()
 
 load_interactome <- function(){
   DISEASE1 <- "Myeloid Leukemia, Chronic"
