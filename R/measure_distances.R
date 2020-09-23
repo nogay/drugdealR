@@ -9,8 +9,10 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(drugdealR)
 #' measure_dists('Myeloid Leukemia, Chronic', 'Imatinib', gr, subnet)
+#' }
 
 measure_dists <- function(disease, drug, gr, subnet){
   gr_noDrug <- subnet[-which(subnet$Protein_A == drug),]

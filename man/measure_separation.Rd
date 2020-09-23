@@ -16,6 +16,7 @@ data.frame
 Measure separation of two entities (disease or drugs)
 }
 \examples{
+\dontrun{
 library(drugdealR)
 load_interactome()
 
@@ -24,4 +25,5 @@ measure_separation('Imatinib', 'Tandutinib', gr)
 
 To calculate separation between two diseases, insert disease names
 measure_separation('Myeloid Leukemia, Chronic', 'Multiple Sclerosis')
+}
 }

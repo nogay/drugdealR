@@ -4,15 +4,14 @@
 \alias{load_interactome}
 \title{Loads the interactome information from data}
 \usage{
-load_interactome()
+load_interactome(DISEASE1, DISEASE2, DRUG1, DRUG2)
+}
+\arguments{
+\item{DRUG2}{}
 }
 \value{
-dataframe
+list
 }
 \description{
 Loads the interactome information from data
-}
-\examples{
-library(drugdealR)
-load_interactome()
 }

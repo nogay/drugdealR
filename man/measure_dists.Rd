@@ -13,6 +13,8 @@ measure_dists(disease, drug, gr, subnet)
 Check if distance matrix of a disease changes after removing a given drug
 }
 \examples{
+\dontrun{
 library(drugdealR)
 measure_dists('Myeloid Leukemia, Chronic', 'Imatinib', gr, subnet)
+}
 }

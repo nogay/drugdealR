@@ -1,21 +1,27 @@
 #' Loads the interactome information from data
 #'
-#' @param DISEASE1
-#' @param DISEASE2
-#' @param DRUG1
-#' @param DRUG2
+#' @param DISEASE1 name of the first disease. Should be compatible with
+#' DisNor (https://disnor.uniroma2.it/) disease names.
+#' @param DISEASE2 name of the second disease. Should be compatible with
+#' DisNor (https://disnor.uniroma2.it/) disease names.
+#' @param DRUG1 name of the first drug. Should be compatible with Drugbank
+#' (https://go.drugbank.com/) drug names.
+#' @param DRUG2 name of the second drug. Should be compatible with Drugbank
+#' (https://go.drugbank.com/) drug names.
 #'
 #' @return list
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(drugdealR)
-#' load_interactome()
+#' load_interactome(Myeloid Leukemia, Chronic', 'Multiple Sclerosis', 'Imatinib', 'Tandutinib')
+#' }
 
 load_interactome <- function(DISEASE1, DISEASE2, DRUG1, DRUG2){
-  interactome_subset <- utils::read.csv("./data/megazord.csv")
-  interactome_subset$X <- NULL
-  disgenet <- utils::read.csv("./data/disgenet.tsv", sep="\t")
+  data("disgenet")
+  data("interactome_subset")
+
   SUBNETWORK <- igraph::graph_from_data_frame(interactome_subset)
   SUBNETWORK <- igraph::as.undirected(SUBNETWORK) #convert to undirected
   SUBNETWORK <- igraph::simplify(SUBNETWORK, remove.multiple = TRUE, remove.loops = TRUE)
