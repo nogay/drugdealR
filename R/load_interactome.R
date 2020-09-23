@@ -1,19 +1,18 @@
 #' Loads the interactome information from data
 #'
-#' @return dataframe
+#' @param DISEASE1
+#' @param DISEASE2
+#' @param DRUG1
+#' @param DRUG2
+#'
+#' @return list
 #' @export
 #'
 #' @examples
 #' library(drugdealR)
 #' load_interactome()
 
-load_interactome <- function(){
-  DISEASE1 <- "Myeloid Leukemia, Chronic"
-  DISEASE2 <- "Multiple Sclerosis"
-  DRUG1 <- "Imatinib"
-  DRUG2 <- "Tandutinib"
-
-  # Load interactome and make graph ###################
+load_interactome <- function(DISEASE1, DISEASE2, DRUG1, DRUG2){
   interactome_subset <- utils::read.csv("./data/megazord.csv")
   interactome_subset$X <- NULL
   disgenet <- utils::read.csv("./data/disgenet.tsv", sep="\t")
@@ -41,9 +40,9 @@ load_interactome <- function(){
   SUBNETGRAPH <- igraph::graph_from_data_frame(SUBNETWORK)
   SUBNETGRAPH <- igraph::as.undirected(SUBNETGRAPH) #convert to undirected
   SUBNETGRAPH <- igraph::simplify(SUBNETGRAPH, remove.multiple = TRUE, remove.loops = TRUE)
+
+  return(list(interactome=INTERACTOME, subnetwork=SUBNETGRAPH))
 }
-
-
 
 #measure_separation(disease1_genes, disease2_genes, INTERACTOME)
 #measure_separation(drug1_genes, drug2_genes, INTERACTOME)
