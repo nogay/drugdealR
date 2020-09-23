@@ -7,7 +7,17 @@
 measure_dists(disease, drug, gr, subnet)
 }
 \arguments{
-\item{subnet}{}
+\item{disease}{name of the disease of interest (compatible with DisNor).}
+
+\item{drug}{name of the drug of interest (compatible with Drugbank).}
+
+\item{gr}{the interactome igraph graph object.}
+
+\item{subnet}{the subnetwork igraph graph object. Contains the disease genes
+and drug targets of diseases and drugs of interest.}
+}
+\value{
+logical
 }
 \description{
 Check if distance matrix of a disease changes after removing a given drug

@@ -15,12 +15,12 @@
 #' @examples
 #' \dontrun{
 #' library(drugdealR)
-#' load_interactome(Myeloid Leukemia, Chronic', 'Multiple Sclerosis', 'Imatinib', 'Tandutinib')
+#' load_interactome('Myeloid Leukemia, Chronic', 'Multiple Sclerosis', 'Imatinib', 'Tandutinib')
 #' }
 
 load_interactome <- function(DISEASE1, DISEASE2, DRUG1, DRUG2){
-  data("disgenet")
-  data("interactome_subset")
+  utils::data("disgenet")
+  utils::data("interactome_subset")
 
   SUBNETWORK <- igraph::graph_from_data_frame(interactome_subset)
   SUBNETWORK <- igraph::as.undirected(SUBNETWORK) #convert to undirected

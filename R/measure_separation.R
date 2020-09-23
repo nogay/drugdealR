@@ -10,7 +10,7 @@
 #' diseases (according to DisNor) and drug targets (according to Drugbank) of
 #' interest.
 #'
-#' @return data.frame
+#' @return numeric
 #' @export
 #'
 #' @examples

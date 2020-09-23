@@ -4,13 +4,23 @@
 \alias{measure_separation}
 \title{Measure separation of two entities (disease or drugs)}
 \usage{
-measure_separation(diseaseA, diseaseB, gr)
+measure_separation(entityA, entityB, gr)
 }
 \arguments{
-\item{gr}{}
+\item{entityA}{name of the first item to measure separation. Should be compatible
+with DisNor (https://disnor.uniroma2.it/) disease names. If is a drug,
+should be compatible with Drugbank names.}
+
+\item{entityB}{name of the second item to measure separation. Should be compatible
+with DisNor (https://disnor.uniroma2.it/) disease names if is a disease. If is a drug,
+should be compatible with Drugbank names.}
+
+\item{gr}{the subnetwork igraph object that contains all genes involved in
+diseases (according to DisNor) and drug targets (according to Drugbank) of
+interest.}
 }
 \value{
-data.frame
+numeric
 }
 \description{
 Measure separation of two entities (disease or drugs)

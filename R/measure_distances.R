@@ -1,11 +1,12 @@
 #' Check if distance matrix of a disease changes after removing a given drug
 #'
-#' @param disease
-#' @param drug
-#' @param gr
-#' @param subnet
+#' @param disease name of the disease of interest (compatible with DisNor).
+#' @param drug name of the drug of interest (compatible with Drugbank).
+#' @param gr the interactome igraph graph object.
+#' @param subnet the subnetwork igraph graph object. Contains the disease genes
+#' and drug targets of diseases and drugs of interest.
 #'
-#' @return
+#' @return logical
 #' @export
 #'
 #' @examples

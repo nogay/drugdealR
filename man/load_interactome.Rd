@@ -7,11 +7,27 @@
 load_interactome(DISEASE1, DISEASE2, DRUG1, DRUG2)
 }
 \arguments{
-\item{DRUG2}{}
+\item{DISEASE1}{name of the first disease. Should be compatible with
+DisNor (https://disnor.uniroma2.it/) disease names.}
+
+\item{DISEASE2}{name of the second disease. Should be compatible with
+DisNor (https://disnor.uniroma2.it/) disease names.}
+
+\item{DRUG1}{name of the first drug. Should be compatible with Drugbank
+(https://go.drugbank.com/) drug names.}
+
+\item{DRUG2}{name of the second drug. Should be compatible with Drugbank
+(https://go.drugbank.com/) drug names.}
 }
 \value{
 list
 }
 \description{
 Loads the interactome information from data
+}
+\examples{
+\dontrun{
+library(drugdealR)
+load_interactome('Myeloid Leukemia, Chronic', 'Multiple Sclerosis', 'Imatinib', 'Tandutinib')
+}
 }
