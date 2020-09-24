@@ -47,7 +47,9 @@ load_interactome <- function(DISEASE1, DISEASE2, DRUG1, DRUG2){
   SUBNETGRAPH <- igraph::as.undirected(SUBNETGRAPH) #convert to undirected
   SUBNETGRAPH <- igraph::simplify(SUBNETGRAPH, remove.multiple = TRUE, remove.loops = TRUE)
 
-  return(list(interactome=INTERACTOME, subnetwork=SUBNETGRAPH))
+  return(list(interactome=INTERACTOME, subnetwork=SUBNETGRAPH,
+              disease1_genes=disease1_genes, disease2_genes=disease2_genes,
+              drug1_genes=drug1_genes, drug2_genes=drug2_genes))
 }
 
 #measure_separation(disease1_genes, disease2_genes, INTERACTOME)

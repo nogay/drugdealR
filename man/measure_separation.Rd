@@ -4,18 +4,14 @@
 \alias{measure_separation}
 \title{Measure separation of two entities (disease or drugs)}
 \usage{
-measure_separation(entityA, entityB, gr)
+measure_separation(genesA, genesB, gr)
 }
 \arguments{
-\item{entityA}{name of the first item to measure separation. Should be compatible
-with DisNor (https://disnor.uniroma2.it/) disease names. If is a drug,
-should be compatible with Drugbank names.}
+\item{genesA}{list of genes associated with the given drug/disease.}
 
-\item{entityB}{name of the second item to measure separation. Should be compatible
-with DisNor (https://disnor.uniroma2.it/) disease names if is a disease. If is a drug,
-should be compatible with Drugbank names.}
+\item{genesB}{list of genes associated with the given drug/disease.}
 
-\item{gr}{the subnetwork igraph object that contains all genes involved in
+\item{gr}{the subnetwork igraph graph object that contains all genes involved in
 diseases (according to DisNor) and drug targets (according to Drugbank) of
 interest.}
 }
@@ -28,12 +24,12 @@ Measure separation of two entities (disease or drugs)
 \examples{
 \dontrun{
 library(drugdealR)
-load_interactome()
+d <- load_interactome()
 
 To calculate separation between two drugs, insert drug names
-measure_separation('Imatinib', 'Tandutinib', gr)
+measure_separation(d$drug1_genes, d$drug2_genes, gr)
 
 To calculate separation between two diseases, insert disease names
-measure_separation('Myeloid Leukemia, Chronic', 'Multiple Sclerosis')
+measure_separation(d$disease1_genes, d$disease2_genes, gr)
 }
 }
