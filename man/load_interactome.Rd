@@ -2,32 +2,19 @@
 % Please edit documentation in R/load_interactome.R
 \name{load_interactome}
 \alias{load_interactome}
-\title{Loads the interactome information from data}
+\title{Loads the protein-protein interaction network}
 \usage{
-load_interactome(DISEASE1, DISEASE2, DRUG1, DRUG2)
-}
-\arguments{
-\item{DISEASE1}{name of the first disease. Should be compatible with
-DisNor (https://disnor.uniroma2.it/) disease names.}
-
-\item{DISEASE2}{name of the second disease. Should be compatible with
-DisNor (https://disnor.uniroma2.it/) disease names.}
-
-\item{DRUG1}{name of the first drug. Should be compatible with Drugbank
-(https://go.drugbank.com/) drug names.}
-
-\item{DRUG2}{name of the second drug. Should be compatible with Drugbank
-(https://go.drugbank.com/) drug names.}
+load_interactome()
 }
 \value{
-list
+graph
 }
 \description{
-Loads the interactome information from data
+Loads the protein-protein interaction network
 }
 \examples{
 \dontrun{
 library(drugdealR)
-load_interactome('Myeloid Leukemia, Chronic', 'Multiple Sclerosis', 'Imatinib', 'Tandutinib')
+load_interactome()
 }
 }
