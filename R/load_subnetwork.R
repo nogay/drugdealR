@@ -40,14 +40,11 @@ load_subnetwork <- function(DISEASE1, DISEASE2, DRUG1, DRUG2){
                   interactome_subset[interactome_subset$Protein_A %in% DRUG1,],
                   interactome_subset[interactome_subset$Protein_A %in% DRUG2,])
 
-  INTERACTOME <- igraph::graph_from_data_frame(SUBNETWORK)
-  INTERACTOME <- igraph::as.undirected(INTERACTOME)
-
   SUBNETGRAPH <- igraph::graph_from_data_frame(SUBNETWORK)
   SUBNETGRAPH <- igraph::as.undirected(SUBNETGRAPH) #convert to undirected
   SUBNETGRAPH <- igraph::simplify(SUBNETGRAPH, remove.multiple = TRUE, remove.loops = TRUE)
 
-  return(list(interactome=INTERACTOME, subnetwork=SUBNETGRAPH,
+  return(list(subnetwork=SUBNETGRAPH,
               disease1_genes=disease1_genes, disease2_genes=disease2_genes,
               drug1_genes=drug1_genes, drug2_genes=drug2_genes))
 }

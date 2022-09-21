@@ -12,7 +12,7 @@
 #' @examples
 #' \dontrun{
 #' library(drugdealR)
-#' d <- load_interactome()
+#' d <- load_subnetwork('Myeloid Leukemia, Chronic', 'Multiple Sclerosis', 'Imatinib', 'Tandutinib')
 #'
 #' To calculate separation between two drugs, insert drug names
 #' measure_separation(d$drug1_genes, d$drug2_genes, gr)

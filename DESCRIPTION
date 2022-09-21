@@ -15,5 +15,9 @@ Imports:
     XML,
     tidyr,
     stringr,
-    igraph
+    igraph,
+    dplyr,
+    shiny,
+    shinythemes,
+    dqshiny
 RoxygenNote: 6.1.1
