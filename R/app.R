@@ -7,38 +7,40 @@ library(dqshiny)
 # Load data
 utils::data("disgenet")
 utils::data("interactome_subset")
+disgenet <- disgenet %>%
+  filter(score >= 0.6)
 
 # Define UI
 ui <- fluidPage(theme = shinytheme("lumen"),
   titlePanel("Drug Synergy"),
   sidebarLayout(
     sidebarPanel(
-
-      # Select type of trend to plot
-      selectInput(inputId = "diseaseType", label = strong("Disease type"),
-                  choices = unique(disgenet$diseaseType),
-                  selected = "disease"),
       # Select disease 1
-      selectInput(inputId = "diseaseName1", label = strong("Disease 1"),
-                  choices = unique(disgenet$diseaseName),
-                  selected = "Pulmonary Hypertension"),
+      autocomplete_input(id = "diseaseName1", label = strong("Disease 1"),
+                  options = unique(disgenet$diseaseName),
+                  value = "Pulmonary Hypertension"),
       # Select disease 2
-      selectInput(inputId = "diseaseName2", label = strong("Disease 2"),
-                  choices = unique(disgenet$diseaseName),
-                  selected = "Liver carcinoma"),
+      autocomplete_input(id = "diseaseName2", label = strong("Disease 2"),
+                  options = unique(disgenet$diseaseName),
+                  value = "Pulmonary Hypertension"),
       # Select drug 1
       autocomplete_input(id = "drug1", label = strong("Drug 1"),
                   options = unique(interactome_subset$Protein_A),
-                  value = "Imatinib"),
+                  value = "Hydrochlorothiazide"),
       # Select drug 2
       autocomplete_input(id = "drug2", label = strong("Drug 2"),
                   options = unique(interactome_subset$Protein_B),
-                  value = "Tandutinib")
+                  value = "Diazoxide")
     ),
 
     # Output: Description, lineplot, and reference
     mainPanel(
-      tableOutput(outputId = "table")
+      tabsetPanel(
+        tabPanel(
+          "Network Graph",
+          plotOutput(outputId = "netgraph", width = "1000px", height = "1000px")
+        )
+      )
     )
   )
 )
@@ -50,15 +52,15 @@ server <- function(input, output) {
   selected_type <- reactive({
     req(input$diseaseName1)
     req(input$diseaseName2)
-    validate(need(input$diseaseName1 != input$diseaseName2, "Error: Diseases must be different."))
-    disgenet %>%
-      filter(
-        diseaseType == input$diseaseType
-        )
+    req(input$drug1)
+    req(input$drug2)
+    # validate(need(input$diseaseName1 != input$diseaseName2, "Error: Diseases must be different."))
+    load_subnetwork(input$diseaseName1, input$diseaseName2, input$drug1, input$drug2)
   })
 
-  output$table <- renderTable({
-    head(selected_type())
+  output$netgraph <- renderPlot({
+    plot(selected_type()$subnetwork,
+         vertex.color = RColorBrewer::brewer.pal(length(unique(V(selected_type()$subnetwork)$source)), "Dark2")[as.numeric(as.factor(vertex_attr(selected_type()$subnetwork, "source")))])
     })
 
 }
